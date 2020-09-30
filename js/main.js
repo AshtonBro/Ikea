@@ -5,10 +5,14 @@ const btnBurger = document.querySelector('.btn-burger'),
     btnClose = document.querySelector('.btn-close'),
     btnReturn = document.querySelector('.btn-return'),
     catalog = document.querySelector('.catalog'),
-    overlay = document.querySelector('.overlay'),
     catalogList = document.querySelector('.catalog-list'),
     catalogSub = document.querySelector('.subcatalog'),
     catalogSubHeader = document.querySelector('.subcatalog-header');
+
+const overlay = document.createElement('div');
+overlay.classList.add('overlay');
+document.body.insertAdjacentElement('beforeend', overlay);
+
 
 //? Add new class for element
 const openMenu = () => {
