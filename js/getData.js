@@ -10,5 +10,17 @@ export const getData = {
             const result = data.filter((item) => list.includes(item.id));
             callback(result);
         });
+    },
+    item(value, callback) {
+        this.get((data) => {
+            const result = data.find((item) => item.id === value);
+            callback(result);
+        });
+    },
+    cart(list, callback) {
+        this.get((data) => {
+            const result = data.filter((item) => list.some(obj => obj.id === item.id));
+            callback(result);
+        });
     }
 };

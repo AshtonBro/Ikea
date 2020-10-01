@@ -31,7 +31,9 @@ export const loadData = () => {
         if (prop === 's') {
             console.log(value);
         } else if (prop === 'wishlist') {
-            getData.wishlist(wishlist, (data) => console.log(`wishlist: ${data}`));
+            getData.wishlist(wishlist, (data) => console.dir({
+                wishlist: data
+            }));
         } else {
             console.log(prop, wishlist);
 
@@ -39,12 +41,11 @@ export const loadData = () => {
     }
 
     if (location.hash) {
-        console.log('location.hash: ', location.hash.slice(1));
-
+        getData.item(location.hash.slice(1), (data) => console.log(data));
     }
 
     if (location.pathname.includes('cart')) {
-        console.log(cartList);
+        getData.cart(cartList, (data) => console.log(data));
     }
 
 };
