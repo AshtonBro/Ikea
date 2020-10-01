@@ -46,5 +46,17 @@ export const getData = {
             });
             callback(result);
         });
+    },
+    catalog(callback) {
+        this.get((data) => {
+
+            callback(result);
+        });
+    },
+    subCatalog(value, callback) {
+        this.get((data) => {
+
+            callback(result);
+        });
     }
 };
