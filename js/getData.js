@@ -1,3 +1,8 @@
+const PARAMETERS = {
+    cat: 'categoty',
+    subcat: 'subcategory'
+};
+
 export const getData = {
     url: 'database/dataBase.json',
     get(process) {
@@ -20,6 +25,12 @@ export const getData = {
     cart(list, callback) {
         this.get((data) => {
             const result = data.filter((item) => list.some(obj => obj.id === item.id));
+            callback(result);
+        });
+    },
+    categoty(prop, value, callback) {
+        this.get((data) => {
+            const result = data.filter((item) => item[PARAMETERS[prop]].toLowerCase() === value.toLowerCase());
             callback(result);
         });
     }

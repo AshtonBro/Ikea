@@ -22,11 +22,8 @@ export const loadData = () => {
 
     if (location.search) {
         const search = decodeURI(location.search);
-        console.log('search: ', search);
         const prop = search.split('=')[0].slice(1);
-        console.log('prop: ', prop);
         const value = search.split('=')[1];
-        console.log('value: ', value);
 
         if (prop === 's') {
             console.log(value);
@@ -35,8 +32,7 @@ export const loadData = () => {
                 wishlist: data
             }));
         } else {
-            console.log(prop, wishlist);
-
+            getData.categoty(prop, value, (data) => console.log(data));
         }
     }
 
