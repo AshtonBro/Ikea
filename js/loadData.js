@@ -25,8 +25,8 @@ export const loadData = () => {
         const prop = search.split('=')[0].slice(1);
         const value = search.split('=')[1];
 
-        if (prop === 's') {
-            console.log(value);
+        if (prop === 'search') {
+            getData.search(value, (data) => console.log(data));
         } else if (prop === 'wishlist') {
             getData.wishlist(wishlist, (data) => console.dir({
                 wishlist: data

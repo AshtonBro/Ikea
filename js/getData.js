@@ -1,6 +1,7 @@
 const PARAMETERS = {
     cat: 'categoty',
-    subcat: 'subcategory'
+    subcat: 'subcategory',
+    search: ['name', 'description', 'category', 'subcategory']
 };
 
 export const getData = {
@@ -31,6 +32,18 @@ export const getData = {
     categoty(prop, value, callback) {
         this.get((data) => {
             const result = data.filter((item) => item[PARAMETERS[prop]].toLowerCase() === value.toLowerCase());
+            callback(result);
+        });
+    },
+    search(value, callback) {
+        this.get((data) => {
+            const result = data.filter((item) => {
+                for (const prop in item) {
+                    if (PARAMETERS.search.includes(prop) && item[prop].toLowerCase().includes(value.toLowerCase())) {
+                        return true;
+                    }
+                }
+            });
             callback(result);
         });
     }
