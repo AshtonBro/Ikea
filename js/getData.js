@@ -49,13 +49,18 @@ export const getData = {
     },
     catalog(callback) {
         this.get((data) => {
-
+            const result = data.reduce((arr, item) => {
+                if (!arr.includes(item.categoty)) {
+                    arr.push(item.categoty);
+                }
+                return arr;
+            }, []);
             callback(result);
         });
     },
     subCatalog(value, callback) {
         this.get((data) => {
-
+            const result = data.filter((item) => item.categoty === value);
             callback(result);
         });
     }
