@@ -1,4 +1,11 @@
+import {
+    getData
+} from './getData.js';
+
 const generateFooter = () => {
+
+    getData.catalog;
+
     const footer = `
         <footer>
             <div class="container">

@@ -1,11 +1,11 @@
 const PARAMETERS = {
-    cat: 'categoty',
-    subcat: 'subcategory',
-    search: ['name', 'description', 'category', 'subcategory']
+    cat: "categoty",
+    subcat: "subcategory",
+    search: ["name", "description", "category", "subcategory"],
 };
 
 export const getData = {
-    url: 'database/dataBase.json',
+    url: "database/dataBase.json",
     get(process) {
         fetch(this.url)
             .then((response) => response.json())
@@ -25,13 +25,17 @@ export const getData = {
     },
     cart(list, callback) {
         this.get((data) => {
-            const result = data.filter((item) => list.some(obj => obj.id === item.id));
+            const result = data.filter((item) =>
+                list.some((obj) => obj.id === item.id)
+            );
             callback(result);
         });
     },
     categoty(prop, value, callback) {
         this.get((data) => {
-            const result = data.filter((item) => item[PARAMETERS[prop]].toLowerCase() === value.toLowerCase());
+            const result = data.filter(
+                (item) => item[PARAMETERS[prop]].toLowerCase() === value.toLowerCase()
+            );
             callback(result);
         });
     },
@@ -39,7 +43,10 @@ export const getData = {
         this.get((data) => {
             const result = data.filter((item) => {
                 for (const prop in item) {
-                    if (PARAMETERS.search.includes(prop) && item[prop].toLowerCase().includes(value.toLowerCase())) {
+                    if (
+                        PARAMETERS.search.includes(prop) &&
+                        item[prop].toLowerCase().includes(value.toLowerCase())
+                    ) {
                         return true;
                     }
                 }
@@ -50,8 +57,8 @@ export const getData = {
     catalog(callback) {
         this.get((data) => {
             const result = data.reduce((arr, item) => {
-                if (!arr.includes(item.categoty)) {
-                    arr.push(item.categoty);
+                if (!arr.includes(item.category)) {
+                    arr.push(item.category);
                 }
                 return arr;
             }, []);
@@ -60,8 +67,13 @@ export const getData = {
     },
     subCatalog(value, callback) {
         this.get((data) => {
-            const result = data.filter((item) => item.categoty === value);
+            const result = data.reduce((arr, item) => {
+                if (!arr.includes(item.subcategory) && item.category === value) {
+                    arr.push(item.subcategory);
+                }
+                return arr;
+            }, []);
             callback(result);
         });
-    }
+    },
 };
