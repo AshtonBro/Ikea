@@ -1,10 +1,8 @@
 export const runCatalog = () => {
     //? Get elements
     const btnBurger = document.querySelector('.btn-burger'),
-        btnClose = document.querySelector('.btn-close'),
         btnReturn = document.querySelector('.btn-return'),
         catalog = document.querySelector('.catalog'),
-        catalogList = document.querySelector('.catalog-list'),
         catalogSub = document.querySelector('.subcatalog'),
         catalogSubHeader = document.querySelector('.subcatalog-header');
 
@@ -27,26 +25,28 @@ export const runCatalog = () => {
     };
 
     //? Open submenu
-    const openSubMenu = (event) => {
+    const handlerCatalog = (event) => {
         event.preventDefault();
-        const target = event.target;
-        const itemList = target.closest('.catalog-list__item');
+        const itemList = event.target.closest('.catalog-list__item');
         if (itemList) {
             catalogSubHeader.innerHTML = itemList.innerHTML;
             catalogSub.classList.add('subopen');
         }
+
+        if (event.target.classList.contains('btn-close')) {
+            closeMenu();
+        }
     };
 
     //? Close submenu
-    const closeSubMenu = (event) => {
+    const closeSubMenu = () => {
         catalogSub.classList.remove('subopen');
-    }
+    };
 
     //? EventListeners
     btnBurger.addEventListener('click', openMenu);
-    btnClose.addEventListener('click', closeMenu);
     overlay.addEventListener('click', closeMenu);
-    catalog.addEventListener('click', openSubMenu);
+    catalog.addEventListener('click', handlerCatalog);
     btnReturn.addEventListener('click', closeSubMenu);
 
 

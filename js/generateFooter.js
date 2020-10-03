@@ -7,7 +7,8 @@ const generateFooter = () => {
     getData.catalog((data) => {
 
         let catalogList = '';
-        data.forEach(item => {
+
+        data.forEach((item) => {
             catalogList += `
                 <li class="footer-list">
                     <a href="goods.html?cat=${item}">${item}</a>
@@ -15,7 +16,7 @@ const generateFooter = () => {
             `;
         });
 
-        const footer = `
+        const footerHTML = `
         <footer>
             <div class="container">
                 <div class="footer">
@@ -51,7 +52,7 @@ const generateFooter = () => {
         </footer>
         `;
 
-        document.body.insertAdjacentHTML('beforeend', footer);
+        document.body.insertAdjacentHTML('beforeend', footerHTML);
     });
 
 };
