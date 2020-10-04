@@ -1,4 +1,13 @@
+import {
+    getData
+} from './getData.js';
+import generateSubCatalog from './generateSubCatalog.js';
+
+
 export const runCatalog = () => {
+    //? Run GetSubCat = return updateHTML.
+    const updateSubCatalog = generateSubCatalog();
+
     //? Get elements
     const btnBurger = document.querySelector('.btn-burger'),
         btnReturn = document.querySelector('.btn-return'),
