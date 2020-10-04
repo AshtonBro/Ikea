@@ -36,10 +36,13 @@ export const runCatalog = () => {
     //? Open submenu
     const handlerCatalog = (event) => {
         event.preventDefault();
-        const itemList = event.target.closest('.catalog-list__item');
+        const target = event.target;
+        const itemList = target.closest('.catalog-list__item');
         if (itemList) {
-            catalogSubHeader.innerHTML = itemList.innerHTML;
-            catalogSub.classList.add('subopen');
+            getData.subCatalog(target.textContent, (data) => {
+                updateSubCatalog(target.textContent, data);
+                catalogSub.classList.add('subopen');
+            });
         }
 
         if (event.target.closest('.btn-close')) {
