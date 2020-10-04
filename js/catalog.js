@@ -33,7 +33,7 @@ export const runCatalog = () => {
             catalogSub.classList.add('subopen');
         }
 
-        if (event.target.classList.contains('btn-close')) {
+        if (event.target.closest('.btn-close')) {
             closeMenu();
         }
     };
