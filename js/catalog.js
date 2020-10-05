@@ -11,9 +11,7 @@ export const runCatalog = () => {
     //? Get elements
     const btnBurger = document.querySelector('.btn-burger'),
         catalog = document.querySelector('.catalog'),
-        catalogSub = document.querySelector('.subcatalog'),
-        catalogSubHeader = document.querySelector('.subcatalog-header'),
-        btnReturn = document.querySelector('.btn-return');
+        catalogSub = document.querySelector('.subcatalog');
 
     const overlay = document.createElement('div');
     overlay.classList.add('overlay');
