@@ -4,8 +4,6 @@ import {
 
 const COUNTER = 6;
 
-const wishlist = ['idd005', 'idd080', 'idd045', 'idd475', 'idd012'];
-
 const generateGoods = () => {
 
     const mainHeader = document.querySelector('.main-header');

@@ -1,5 +1,5 @@
 const userData = {
-    wishListData: ['idd005', 'idd080', 'idd045', 'idd475', 'idd012'],
+    wishListData: [],
     get wishList() {
         return this.wishListData;
     },
@@ -7,8 +7,9 @@ const userData = {
         if (this.wishListData.includes(id)) {
             const index = this.wishListData.indexOf(id);
             this.wishListData.splice(index, 1);
+        } else {
+            this.wishListData.push(id);
         }
-        this.wishListData.push(id);
     },
 
     cartListData: [{
@@ -26,3 +27,5 @@ const userData = {
     ],
 
 };
+
+export default userData;
