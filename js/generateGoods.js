@@ -12,7 +12,12 @@ const generateGoods = () => {
     const goodsList = document.querySelector('.goods-list');
     const generateCards = (data) => {
         goodsList.textContent = '';
-
+        if (!data.length) {
+            const goods = document.querySelector('.goods');
+            goods.textContent = location.search === '?wishlist' ?
+                'Список желаний пуст' :
+                'К сожалению по вашему запросу ничего не найдено';
+        }
         data.forEach(item => {
 
             const {
