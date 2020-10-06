@@ -19,7 +19,8 @@ const generateItemPage = () => {
             subcategory
         } = data;
 
-        const goodImages = document.querySelector('.good-images'),
+        const breadCrumbLink = document.querySelectorAll('.breadcrumb__link'),
+            goodImages = document.querySelector('.good-images'),
             goodItemNew = document.querySelector('.good-item__new'),
             goodItemHeader = document.querySelector('.good-item__header'),
             goodItemDescription = document.querySelector('.good-item__description'),
@@ -28,11 +29,15 @@ const generateItemPage = () => {
             btnGood = document.querySelector('.btn-good'),
             btnAddWishlist = document.querySelector('.btn-add-wishlist');
 
+        breadCrumbLink[0].textContent = category;
+        breadCrumbLink[0].href = `goods.html?cat=${category}`;
+        breadCrumbLink[1].textContent = subcategory;
+        breadCrumbLink[1].href = `goods.html?cat=${subcategory}`;
+        breadCrumbLink[2].textContent = itemName;
+
         goodImages.textContent = '';
-        //goodItemNew.textContent = '';
         goodItemHeader.textContent = itemName;
         goodItemDescription.textContent = description;
-        //goodItemEmpty.textContent = '';
         goodItemPriceValue.textContent = price;
         btnGood.dataset.idd = id;
         btnAddWishlist.dataset.idd = id;
