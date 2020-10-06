@@ -17,6 +17,7 @@ const generateGoods = () => {
             goods.textContent = location.search === '?wishlist' ?
                 'Список желаний пуст' :
                 'К сожалению по вашему запросу ничего не найдено';
+            return;
         }
         data.forEach(item => {
 
