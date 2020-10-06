@@ -17,7 +17,6 @@ export const runCatalog = () => {
     overlay.classList.add('overlay');
     document.body.append(overlay);
 
-
     //? Add new class for element
     const openMenu = () => {
         catalog.classList.add('open');
