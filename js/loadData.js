@@ -2,23 +2,6 @@ import {
     getData
 } from './getData.js';
 
-
-const wishlist = ['idd005', 'idd080', 'idd045', 'idd475', 'idd012'];
-
-const cartList = [{
-        id: 'idd002',
-        count: 3
-    },
-    {
-        id: 'idd022',
-        count: 1
-    },
-    {
-        id: 'idd042',
-        count: 2
-    },
-];
-
 export const loadData = () => {
 
     if (location.pathname.includes('cart')) {
