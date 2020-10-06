@@ -39,7 +39,7 @@ const generateGoods = () => {
                                 ${img[1] ? `data-second-image="${img[1]}"` : ''}
                                     alt="${name}">
                             </div>
-                            ${count > COUNTER ? '<p class="goods-item__new">Новинка</p>' : ''}
+                            ${count >= COUNTER ? '<p class="goods-item__new">Новинка</p>' : ''}
                             ${!count ? '<p class="goods-item__new">Нет в наличии</p>' : ''}
                             <h3 class="goods-item__header">${name}</h3>
                             <p class="goods-item__description">${description}</p>
