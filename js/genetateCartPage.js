@@ -6,12 +6,13 @@ import userData from './userData.js';
 const genetateCartPage = () => {
 
     if (location.pathname.includes('cart')) {
-        const cartList = document.querySelector('.cart-list');
+        const cartList = document.querySelector('.cart-list'),
+            cartTotalPrice = document.querySelector('.cart-total-price');
 
         const renderCartList = (data) => {
 
             cartList.textContent = '';
-
+            let totalPrice = 0;
             data.forEach(({
                 name: itemName,
                 description,
@@ -32,6 +33,8 @@ const genetateCartPage = () => {
                 for (let i = 0; i <= count; i++) {
                     options += `<option value=${i} ${countUser === i ? 'selected' : ''}>${i}</option>`;
                 }
+
+                totalPrice += countUser * price;
 
                 cartList.insertAdjacentHTML('beforeend', `
                         <li class="cart-item">
@@ -70,15 +73,21 @@ const genetateCartPage = () => {
                     </li>
                 `);
             });
+            cartTotalPrice.textContent = totalPrice;
         };
 
 
         cartList.addEventListener('change', (event) => {
-            userData.changeCountList = {
+            userData.changeCountCartList = {
                 id: event.target.dataset.idd,
-                count: event.target.value
+                count: parseInt(event.target.value)
             };
             getData.cart(userData.cartList, renderCartList);
+        });
+
+        cartList.addEventListener('click', (event) => {
+            const target = event.target;
+            const btnRemove = target.closest('.btn-remove');
         });
 
         getData.cart(userData.cartList, renderCartList);
