@@ -7,10 +7,9 @@ import userData from './userData.js';
 const COUNTER = 6;
 
 const generateGoods = () => {
-
     const mainHeader = document.querySelector('.main-header');
-    const goodsList = document.querySelector('.goods-list');
     const generateCards = (data) => {
+        const goodsList = document.querySelector('.goods-list');
         goodsList.textContent = '';
         if (!data.length) {
             const goods = document.querySelector('.goods');
@@ -53,6 +52,14 @@ const generateGoods = () => {
                 </li>
             `);
         });
+
+        goodsList.addEventListener('click', (event) => {
+            const btnAddCard = event.target.closest('.btn-add-card');
+            if (btnAddCard) {
+                event.preventDefault();
+                userData.cartList = btnAddCard.dataset.idd;
+            }
+        });
     };
 
     if (location.pathname.includes('goods') && location.search) {
@@ -72,6 +79,8 @@ const generateGoods = () => {
         }
 
     }
+
+
 };
 
 export default generateGoods;
