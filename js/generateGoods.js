@@ -46,7 +46,7 @@ const generateGoods = () => {
                                 <span class="goods-item__price-value">${price}</span>
                                 <span class="goods-item__currency"> ₽</span>
                             </p>
-                            ${count ? '<button class="btn btn-add-card" aria-label="Добравить в корзину" data-idd="${id}"></button>' : ''}
+                            ${count ? `<button class="btn btn-add-card" aria-label="Добравить в корзину" data-idd="${id}"></button>` : ''}
                         </article>
                     </a>
                 </li>
