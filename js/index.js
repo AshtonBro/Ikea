@@ -6,9 +6,7 @@ import generateCatalog from './generateCatalog.js';
 import generateGoods from './generateGoods.js';
 import generateItemPage from './generateItemPage.js';
 import genetateCartPage from './genetateCartPage.js';
-import {
-    loadData
-} from './loadData.js';
+
 
 generateHeader();
 generateFooter();
@@ -16,5 +14,3 @@ generateCatalog();
 generateGoods();
 generateItemPage();
 genetateCartPage();
-
-loadData();
