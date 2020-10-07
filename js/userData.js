@@ -12,19 +12,23 @@ const userData = {
         }
     },
 
-    cartListData: [{
-            id: 'idd002',
-            count: 3
-        },
-        {
-            id: 'idd022',
-            count: 1
-        },
-        {
-            id: 'idd042',
-            count: 2
+    cartListData: [],
+
+    get cartList() {
+        return this.cartListData;
+    },
+    set cartList(id) {
+        let obj = this.cartListData.find(item => item.id === id);
+        if (obj) {
+            obj.count++;
+        } else {
+            obj = {
+                id,
+                count: 1,
+            };
+            this.cartListData.push(obj);
         }
-    ],
+    }
 
 };
 

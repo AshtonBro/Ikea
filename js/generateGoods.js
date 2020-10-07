@@ -62,7 +62,7 @@ const generateGoods = () => {
             getData.search(value, generateCards);
             mainHeader.textContent = `Поиск: ${value}`;
         } else if (prop === 'wishlist') {
-            getData.wishlist(wishlist, generateCards);
+            getData.wishlist(getData.wishlist, generateCards);
             mainHeader.textContent = `Список желаний`;
         } else if (prop === 'cat' || prop === 'subcat') {
             getData.categoty(prop, value, generateCards);
