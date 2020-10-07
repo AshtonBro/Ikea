@@ -28,6 +28,7 @@ const userData = {
             };
             this.cartListData.push(obj);
         }
+        console.log(this.cartList);
     }
 
 };
