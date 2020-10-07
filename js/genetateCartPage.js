@@ -8,9 +8,10 @@ const genetateCartPage = () => {
     if (location.pathname.includes('cart')) {
         const cartList = document.querySelector('.cart-list');
 
-        cartList.textContent = '';
-
         const renderCartList = (data) => {
+
+            cartList.textContent = '';
+
             data.forEach(({
                 name: itemName,
                 description,
@@ -43,7 +44,7 @@ const genetateCartPage = () => {
                                 <h3 class="product__name">
                                     <a href="card.html#${id}">${itemName}</a></h3>
                                 <p class="product_description-text">${description}</p>
-                            </div>
+                            </div> 
                             <div class="product__prices">
                                 <div class="product__price-type product__price-type-regular">
                                     <div>
@@ -71,11 +72,16 @@ const genetateCartPage = () => {
             });
         };
 
-        getData.cart(userData.cartList, renderCartList);
 
-        cartList.addEventListener('change', () => {
-
+        cartList.addEventListener('change', (event) => {
+            userData.changeCountList = {
+                id: event.target.dataset.idd,
+                count: event.target.value
+            };
+            getData.cart(userData.cartList, renderCartList);
         });
+
+        getData.cart(userData.cartList, renderCartList);
 
     }
 };
