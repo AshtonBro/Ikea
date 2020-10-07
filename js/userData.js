@@ -1,5 +1,10 @@
+import {
+    getLocalStorage,
+    setLocalStorage
+} from './storage.js';
+
 const userData = {
-    wishListData: [],
+    wishListData: getLocalStorage('wishList'),
     get wishList() {
         return this.wishListData;
     },
@@ -10,9 +15,10 @@ const userData = {
         } else {
             this.wishListData.push(id);
         }
+        setLocalStorage('wishList', this.wishList);
     },
 
-    cartListData: [],
+    cartListData: getLocalStorage('cartList'),
 
     get cartList() {
         return this.cartListData;
@@ -28,7 +34,7 @@ const userData = {
             };
             this.cartListData.push(obj);
         }
-        console.log(this.cartList);
+        setLocalStorage('wishList', this.cartList);
     }
 
 };
