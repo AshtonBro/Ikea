@@ -52,7 +52,7 @@ const genetateCartPage = () => {
                                 <div class="product__price-type product__price-type-regular">
                                     <div>
                                     <div class="product__total product__total-regular">${price*countUser}.-</div>
-                                    ${ countUser > 1 ? `<div class="product__price-regular">${price}.-</div>` : `` }
+                                    ${ countUser > 1 ? `<div class="product__price-regular">${price}.-</div>` : '' }
                                     </div>
                                 </div>
                             </div>

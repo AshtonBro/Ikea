@@ -30,7 +30,7 @@ const generateGoods = () => {
             } = item;
 
             goodsList.insertAdjacentHTML('afterbegin', `
-                <li class="${name}">
+                <li class="goods-list__item">
                     <a class="goods-item__link" href="card.html#${id}">
                         <article class="goods-item">
                             <div class="goods-item__img">
@@ -71,7 +71,7 @@ const generateGoods = () => {
             getData.search(value, generateCards);
             mainHeader.textContent = `Поиск: ${value}`;
         } else if (prop === 'wishlist') {
-            getData.wishlist(userData.wishlist, generateCards);
+            getData.wishlist(userData.wishList, generateCards);
             mainHeader.textContent = `Список желаний`;
         } else if (prop === 'cat' || prop === 'subcat') {
             getData.categoty(prop, value, generateCards);
