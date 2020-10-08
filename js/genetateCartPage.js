@@ -57,7 +57,6 @@ const genetateCartPage = () => {
                                 </div>
                             </div>
                             <div class="product__controls">
-
                                 <div class="product-controls__remove">
                                     <button type="button" class="btn btn-remove" data-idd=${id}>
                                         <img src="image/remove-thin-24.16c1cc7a.svg" alt="Удалить товар">
@@ -76,7 +75,6 @@ const genetateCartPage = () => {
             cartTotalPrice.textContent = totalPrice;
         };
 
-
         cartList.addEventListener('change', (event) => {
             userData.changeCountCartList = {
                 id: event.target.dataset.idd,
@@ -88,6 +86,11 @@ const genetateCartPage = () => {
         cartList.addEventListener('click', (event) => {
             const target = event.target;
             const btnRemove = target.closest('.btn-remove');
+            if (btnRemove) {
+                userData.deleteItemCart = btnRemove.dataset.idd;
+                getData.cart(userData.cartList, renderCartList);
+            }
+
         });
 
         getData.cart(userData.cartList, renderCartList);
