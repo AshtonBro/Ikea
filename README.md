@@ -1,9 +1,9 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Ikea_logo.svg/2560px-Ikea_logo.svg.png" width="100" height ="50">
 Copy of IKEA website
 
-<h3> Write this project for JS practice. We revive the self-written IKEA website, load<br>
-the pre-configured JSON file with the data about the IKEA product. We use<br> the Promise request
-handler, render html blocks using insertAdjacentHTML,<br> and implement a product search. </h3>
+<h3> Write this project for JS practice. We revive the self-written IKEA website, load
+the pre-configured JSON file with the data about the IKEA product. We use the Promise request
+handler, render html blocks using insertAdjacentHTML, and implement a product search. </h3>
 
 <p>
   <img src="http://dl4.joxi.net/drive/2021/08/07/0023/3726/1527438/38/3ec87eea7c.jpg" width="700" />
@@ -22,5 +22,4 @@ handler, render html blocks using insertAdjacentHTML,<br> and implement a produc
 
 ## See original site 👉 [IKEA-RU](https://www.ikea.com/ru/ru/)
 ## Run
-Copy repository and run server.
-
+Copy this repository and run server.
